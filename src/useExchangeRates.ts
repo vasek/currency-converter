@@ -7,10 +7,12 @@ export interface ExchangeRate {
 }
 
 async function fetchExchangeRates(): Promise<ExchangeRate[]> {
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
   const apiUrl =
     "https://www.cnb.cz/en/financial-markets/foreign-exchange-market/central-bank-exchange-rate-fixing/central-bank-exchange-rate-fixing/daily.txt";
-  const response = await fetch(proxyUrl + apiUrl);
+  const proxyUrl = `http://localhost:3001/?apiUrl=${encodeURIComponent(
+    apiUrl
+  )}`;
+  const response = await fetch(proxyUrl);
 
   const text = await response.text();
   const lines = text.split("\n");

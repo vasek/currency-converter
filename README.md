@@ -37,7 +37,9 @@ cd currency-converter
 npm install
 ```
 
-4. Run the development server:
+### Running the Application
+
+1. Run the React development server:
 
 ```bash
 npm start
@@ -45,11 +47,24 @@ npm start
 
 The application should now be running on `http://localhost:3000`.
 
+2. In a separate terminal window, run the CORS proxy server:
+
+```bash
+npm run proxy
+```
+
+The proxy server should now be running on [http://localhost:3001](http://localhost:3001).
+
+The proxy server is required to bypass the CORS restriction when fetching data from the CNB API. The React application will make requests to the proxy server, which will then forward the requests to the CNB API.
+
 ## Built with
 
 - [React](https://reactjs.org/)
-- [styled-components](https://styled-components.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [React Query](https://react-query.tanstack.com/)
+- [styled-components](https://styled-components.com/)
+- [Express](https://expressjs.com/)
+- [Node.js](https://nodejs.org/)
 
 ## Co-created by
 
